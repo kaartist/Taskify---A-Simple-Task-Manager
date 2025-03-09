@@ -166,7 +166,7 @@ ul li span:hover{
     outline: none;
     cursor: pointer;
     bottom: 9px;
-    left: 390px;
+    left: 395px;
 }
 
 #toggle::after{
@@ -294,7 +294,7 @@ ul li.dragging {
 
 
 /* Mobile-Specific Styles */
-@media (min-width: 340px) and (max-width: 380px) {
+@media(max-width: 380px) {
     .todo-app h2 {
         font-size: 24px;
     }
@@ -351,7 +351,7 @@ ul li.dragging {
 
     ul li .task-text {
         top: 0;
-        font-size: 14;
+        font-size: 13;
     }
 
     ul li input[type="checkbox"] {
@@ -368,7 +368,7 @@ ul li.dragging {
     #toggle {
         height: 1;
         width: 55px;
-        left: 250px;
+        left: 240px;
         bottom: 50px;
         padding: 10px;
     }
@@ -390,7 +390,7 @@ ul li.dragging {
 
     
     #sortAsc{
-        padding: 7px 10px;
+        padding: 5px 8px;
         font-size: 14px;
         margin: 5px;
         margin-bottom: 5px;
@@ -398,15 +398,15 @@ ul li.dragging {
     }
 
     #sortDes{
-        padding: 7px 10px;
+        padding: 5px 8px;
         font-size: 14px; 
         margin: 2px;
     }
 
     #sortRes{
-        padding: 7px 10px;
+        padding: 5.5px 10px;
         font-size: 14px;
-        margin-left: 30px;
+        margin-left: 15px;
     }
 
 }

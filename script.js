@@ -46,7 +46,6 @@ function updateDOM() {
     taskTextWrapper.addEventListener("keydown", (event) => {
       if (event.key === "Enter") { 
         taskTextWrapper.contentEditable = false;
-
         saveData(); 
       }
     });
@@ -82,13 +81,12 @@ function updateDOM() {
       }
 
       tasks[index].text = editedText; 
-
-      saveData(); 
+      saveData();
     });
 
     // 13. Highlight Selected Items
     checkbox.addEventListener("change", () => { 
-      li.classList.toggle("slected-task", checkbox.checked); 
+      li.classList.toggle("selected-task", checkbox.checked); 
     });
 
     listContainer.appendChild(li); 
@@ -148,30 +146,32 @@ listContainer.addEventListener("click", (e) => {
     if (index === -1) return; 
     tasks[index].checked = !tasks[index].checked; 
     e.target.classList.toggle("checked"); 
-    setTimeout(updateCounters, 0); 
+    updateCounters();
     saveData(); 
   }
-
+ 
   // 2. Remove a Task
-  if (e.target.tagName === "SPAN") { 
+  if (e.target.tagName === "SPAN" && e.target.innerHTML === "\u00d7") { 
     const li = e.target.closest("li"); 
-    if (!li) return; 
+    if (!li) {
+       return; 
+    }
 
-    const index = parseInt(li.dataset.index); 
-    const taskTextWrapper = li.querySelector(".task-text"); 
+    const taskTextWrapper = li.querySelector(".task-text");
 
-    if (taskTextWrapper.ContentEditable === "true") { 
+    if (taskTextWrapper.contentEditable === "true") { 
       alert("Cannot delete while editing a task. Finish editing first.");
       return;
     }
 
+    const index = parseInt(li.dataset.index);
     const taskName = tasks[index]?.text; 
     const result = confirm(`Do you want to remove a task "${taskName}"?`); 
     if (result) { 
       tasks.splice(index, 1); 
       originalTasksOrder = [...tasks]; 
       li.remove(); 
-      setTimeout(updateCounters, 0); 
+      updateCounters(); 
       saveData(); 
     } else { 
       alert("Removing Cancelled.");
