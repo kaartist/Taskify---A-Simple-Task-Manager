@@ -124,8 +124,17 @@ ul li input[type="checkbox"] {
     transform: scale(1.2);
 }
 
+ul li.selected-task{
+    background-color: lightblue;
+}
+
 ul li.checked {
-    background-color: #8bb6e3;
+    background-color: lightgreen;
+}
+
+ul li.checked.selected-task {
+    background-color: lightgreen;
+    border: 2px solid blue;
 }
 
 ul li.checked .task-text{
