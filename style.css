@@ -283,8 +283,17 @@ body.dark-theme .container {
     color: #edeef0;
 }
 
+.dark-theme ul li.selected-task{
+    background-color: lightblue;
+}
+
 .dark-theme ul li.checked {
-    background-color: #8bb6e3;
+    background-color: lightgreen;
+}
+
+.dark-theme ul li.checked.selected-task {
+    background-color: lightgreen;
+    border: 2px solid blue;
 }
 
 .dark-theme ul li span {
